@@ -21,9 +21,9 @@ async function main() {
 
     document.getElementById("output").appendChild(webGLRenderer.domElement);
 
-    // 创建 XYZ 坐标轴
-    var axesHelper = new THREE.AxesHelper(100); // 参数表示坐标轴长度
-    scene.add(axesHelper);
+    // // 创建 XYZ 坐标轴
+    // var axesHelper = new THREE.AxesHelper(100); // 参数表示坐标轴长度
+    // scene.add(axesHelper);
     var rotatingObjects = [];
 
     // 添加一个平面作为地板
@@ -88,7 +88,7 @@ async function main() {
     });
 
     loader.load("dragon_blue1.stl", function (geometry) {
-        var mat = new THREE.MeshPhongMaterial({ color: 0x0000ff, specular: 0x111111, shininess: 200 });
+        var mat = new THREE.MeshPhongMaterial({ color: 0x00a8f3, specular: 0x111111, shininess: 200 });
         var mesh = new THREE.Mesh(geometry, mat);
         mesh.scale.set(1, 1, 1);
         
@@ -105,7 +105,7 @@ async function main() {
     });
 
     loader.load("dragon_blue2.stl", function (geometry) {
-        var mat = new THREE.MeshPhongMaterial({ color: 0x0000ff, specular: 0x111111, shininess: 200 });
+        var mat = new THREE.MeshPhongMaterial({ color: 0x00a8f3, specular: 0x111111, shininess: 200 });
         var mesh = new THREE.Mesh(geometry, mat);
         mesh.scale.set(1, 1, 1);
         
@@ -172,203 +172,19 @@ async function main() {
 
     });
 
-
-    // 右后
-    loader.load("dragon_foot_red.stl", function (geometry) {
-        var mat = new THREE.MeshPhongMaterial({ color: 0xff0000, specular: 0x111111, shininess: 200 });
-        var mesh = new THREE.Mesh(geometry, mat);
-        mesh.scale.set(1, 1, 1);
-        
-        mesh.position.y = 10;
-        mesh.position.set(-34,15,0);
-        mesh.rotation.x = -Math.PI / 2;
-        mesh.rotation.z = Math.PI ;
-        mesh.castShadow = true;
-        mesh.receiveShadow = true;
-
-        const offset = new THREE.Vector3(10, -16, -2);
-        mesh.position.add(offset);
-        mesh.scale.set(0.1,0.1,0.1);
-
-
-        const rotationOffset = new THREE.Euler(Math.PI * 20/180, 0, Math.PI *-21/180 , 'XYZ');
-        // 将rotationOffset添加到mesh的旋转上
-        mesh.rotation.x += rotationOffset.x;
-        mesh.rotation.y += rotationOffset.y;
-        mesh.rotation.z += rotationOffset.z;
-
-
-        scene.add(mesh);
-        rotatingObjects.push(mesh);
-
-    });
-
-    loader.load("dragon_foot_yellow.stl", function (geometry) {
-        var mat = new THREE.MeshPhongMaterial({ color: 0xffff00, specular: 0x111111, shininess: 200 });
-        var mesh = new THREE.Mesh(geometry, mat);
-        mesh.scale.set(1, 1, 1);
-        
-        mesh.position.y = 10;
-        mesh.position.set(-34,15,0);
-        mesh.rotation.x = -Math.PI / 2;
-        mesh.rotation.z = Math.PI ;
-        mesh.castShadow = true;
-        mesh.receiveShadow = true;
-        const offset = new THREE.Vector3(10, -16, -2);
-
-        mesh.position.add(offset);
-        mesh.scale.set(0.1,0.1,0.1);
-        
-
-        const rotationOffset = new THREE.Euler(Math.PI * 20/180, 0, -Math.PI *21/180 , 'XYZ');
-        // 将rotationOffset添加到mesh的旋转上
-        mesh.rotation.x += rotationOffset.x;
-        mesh.rotation.y += rotationOffset.y;
-        mesh.rotation.z += rotationOffset.z;
-
-
-        scene.add(mesh);
-        rotatingObjects.push(mesh);
-
-    });
-
-
-    // 左后
-    loader.load("dragon_foot_red.stl", function (geometry) {
-        var mat = new THREE.MeshPhongMaterial({ color: 0xff0000, specular: 0x111111, shininess: 200 });
-        var mesh = new THREE.Mesh(geometry, mat);
-        mesh.scale.set(1, 1, 1);
-        
-        mesh.position.y = 10;
-        mesh.position.set(-34,15,0);
-        mesh.rotation.x = -Math.PI / 2;
-        mesh.rotation.z = Math.PI ;
-        mesh.castShadow = true;
-        mesh.receiveShadow = true;
-
-        const offset = new THREE.Vector3(10, -16, -1);
-        mesh.position.add(offset);
-        mesh.scale.set(0.1,0.1,0.1);
-
-
-        const rotationOffset = new THREE.Euler(-Math.PI * 20/90, 0, Math.PI *21/90 , 'XYZ');
-        // 将rotationOffset添加到mesh的旋转上
-        mesh.rotation.x += rotationOffset.x;
-        mesh.rotation.y += rotationOffset.y;
-        mesh.rotation.z += rotationOffset.z;
-
-
-        scene.add(mesh);
-        rotatingObjects.push(mesh);
-
-    });
-
-    loader.load("dragon_foot_yellow.stl", function (geometry) {
-        var mat = new THREE.MeshPhongMaterial({ color: 0xffff00, specular: 0x111111, shininess: 200 });
-        var mesh = new THREE.Mesh(geometry, mat);
-        mesh.scale.set(1, 1, 1);
-        
-        mesh.position.y = 10;
-        mesh.position.set(-34,15,0);
-        mesh.rotation.x = -Math.PI / 2;
-        mesh.rotation.z = Math.PI ;
-        mesh.castShadow = true;
-        mesh.receiveShadow = true;
-        const offset = new THREE.Vector3(10, -16, -1);
-
-        mesh.position.add(offset);
-        mesh.scale.set(0.1,0.1,0.1);
-
-        const rotationOffset = new THREE.Euler(-Math.PI * 20/90, 0, Math.PI *21/90 , 'XYZ');
-        // 将rotationOffset添加到mesh的旋转上
-        mesh.rotation.x += rotationOffset.x;
-        mesh.rotation.y += rotationOffset.y;
-        mesh.rotation.z += rotationOffset.z;
-
-
-        scene.add(mesh);
-        rotatingObjects.push(mesh);
-
-    });
-
-
-     // 右前
-     loader.load("dragon_foot_red.stl", function (geometry) {
-        var mat = new THREE.MeshPhongMaterial({ color: 0xff0000, specular: 0x111111, shininess: 200 });
-        var mesh = new THREE.Mesh(geometry, mat);
-        mesh.scale.set(1, 1, 1);
-        
-        mesh.position.y = 10;
-        mesh.position.set(-34,15,0);
-        mesh.rotation.x = -Math.PI / 2;
-        mesh.rotation.z = Math.PI ;
-        mesh.castShadow = true;
-        mesh.receiveShadow = true;
-
-        const offset = new THREE.Vector3(32, -18, -1);
-        mesh.position.add(offset);
-        mesh.scale.set(0.1,0.1,0.1);
-
-
-        const rotationOffset = new THREE.Euler(Math.PI * 20/90, 0, -Math.PI *21/90 , 'XYZ');
-        // 将rotationOffset添加到mesh的旋转上
-        mesh.rotation.x += rotationOffset.x;
-        mesh.rotation.y += rotationOffset.y;
-        mesh.rotation.z += rotationOffset.z;
-
-
-        scene.add(mesh);
-        rotatingObjects.push(mesh);
-
-    });
-
-    loader.load("dragon_foot_yellow.stl", function (geometry) {
-        var mat = new THREE.MeshPhongMaterial({ color: 0xffff00, specular: 0x111111, shininess: 200 });
-        var mesh = new THREE.Mesh(geometry, mat);
-        mesh.scale.set(1, 1, 1);
-        
-        mesh.position.y = 10;
-        mesh.position.set(-34,15,0);
-        mesh.rotation.x = -Math.PI / 2;
-        mesh.rotation.z = Math.PI ;
-        mesh.castShadow = true;
-        mesh.receiveShadow = true;
-        const offset = new THREE.Vector3(32, -18, -2.5);
-
-
-        mesh.position.add(offset);
-        mesh.scale.set(0.1,0.1,0.1);
-
-        const rotationOffset = new THREE.Euler(Math.PI * 20/90, 0, -Math.PI *21/90 , 'XYZ');
-        // 将rotationOffset添加到mesh的旋转上
-        mesh.rotation.x += rotationOffset.x;
-        mesh.rotation.y += rotationOffset.y;
-        mesh.rotation.z += rotationOffset.z;
-
-
-        scene.add(mesh);
-        rotatingObjects.push(mesh);
-
-    });
-
-
-    // 右前
+    // foot
     loader.load("dragon_foot_red.stl", function (geometry) {
     var mat = new THREE.MeshPhongMaterial({ color: 0xff0000, specular: 0x111111, shininess: 200 });
     var mesh = new THREE.Mesh(geometry, mat);
     mesh.scale.set(1, 1, 1);
     
     mesh.position.y = 10;
-    mesh.position.set(-34,15,0);
+    mesh.position.set(-34,17,0);
     mesh.rotation.x = -Math.PI / 2;
     mesh.rotation.z = Math.PI ;
     mesh.castShadow = true;
     mesh.receiveShadow = true;
 
-    const offset = new THREE.Vector3(38, -18, -1);
-
-    mesh.position.add(offset);
-    mesh.scale.set(0.1,0.1,0.1);
 
 
 
@@ -384,16 +200,12 @@ async function main() {
         mesh.scale.set(1, 1, 1);
         
         mesh.position.y = 10;
-        mesh.position.set(-34,15,0);
+        mesh.position.set(-34,17,0);
         mesh.rotation.x = -Math.PI / 2;
         mesh.rotation.z = Math.PI ;
         mesh.castShadow = true;
         mesh.receiveShadow = true;
-        const offset = new THREE.Vector3(38, -18, -1);
-
-
-        mesh.position.add(offset);
-        mesh.scale.set(0.1,0.1,0.1);
+  
 
 
         scene.add(mesh);
@@ -401,7 +213,7 @@ async function main() {
 
     });
 
-    
+
 
 
     // tail
@@ -481,16 +293,55 @@ async function main() {
 
     });
 
+    // black
+    loader.load("dragon_black.stl", function (geometry) {
+        var mat = new THREE.MeshPhongMaterial({ color: 0x000000, specular: 0x111111, shininess: 200 });
+        var mesh = new THREE.Mesh(geometry, mat);
+        mesh.scale.set(1, 1, 1);
+        
+        mesh.position.y = 10;
+        mesh.position.set(-34,15,0);
+        mesh.rotation.x = -Math.PI / 2;
+        mesh.rotation.z = Math.PI ;
+        mesh.castShadow = true;
+        mesh.receiveShadow = true;
+
+        scene.add(mesh);
+        rotatingObjects.push(mesh);
+
+    });
+
+    // 创建一个纹理加载器
+    
+    loader.load("dragon_scale.stl", function (geometry) {
+        var mat = new THREE.MeshPhongMaterial({ color: 0xffd700, specular: 0x111111, shininess: 200 });
+
+        var mesh = new THREE.Mesh(geometry, mat);
+        mesh.scale.set(1, 1, 1);
+        
+        mesh.position.y = 10;
+        mesh.position.set(-34,15,0);
+        mesh.rotation.x = -Math.PI / 2;
+        mesh.rotation.z = Math.PI ;
+        mesh.castShadow = true;
+        mesh.receiveShadow = true;
+
+        scene.add(mesh);
+        rotatingObjects.push(mesh);
+
+    });
+
     // ball
+    var textureLoader = new THREE.TextureLoader();
+
     var sphereGeometry = new THREE.SphereGeometry(3, 32, 32);
 
-    var textureLoader = new THREE.TextureLoader();
-    textureLoader.load("ball.jpg", function(texture) {
-        var phongMaterial = new THREE.MeshPhongMaterial({ map: texture });
+    textureLoader.load("scale.png", function(texture) {
+        var phongMaterial = new THREE.MeshPhongMaterial({ map: texture});
 
         var sphereMesh = new THREE.Mesh(sphereGeometry, phongMaterial);
         
-        sphereMesh.position.set(-5, -7, 0);
+        sphereMesh.position.set(10, 10, 7);
         sphereMesh.castShadow = true;
         sphereMesh.receiveShadow = true;
         scene.add(sphereMesh);
@@ -570,28 +421,28 @@ async function main() {
     rotatingObjects.push(firelight);
 
     // 在龙模型周围随机添加小球体
-    // for (var i = 0; i < 300; i++) {
-    //     var sphereGeometry = new THREE.SphereGeometry(1, 16, 16);
-    //     var sphere = new THREE.Mesh(sphereGeometry, fireMaterial);
+    for (var i = 0; i < 1500; i++) {
+        var sphereGeometry = new THREE.SphereGeometry(.7, 16, 16);
+        var sphere = new THREE.Mesh(sphereGeometry, fireMaterial);
 
-    //     var radius = 20 + Math.random() * 10; 
-    //     var angle = Math.random() * Math.PI * 2; 
-    //     var randomX = -34 + radius * Math.cos(angle) + 9;
-    //     var randomY = 10  + Math.random()*13; 
-    //     var randomZ = Math.random() * 10 - 5; 
+        var radius = 20 + Math.random() * 10; 
+        var angle = Math.random() * Math.PI * 2; 
+        var randomX = -34 + radius * Math.cos(angle) + 9;
+        var randomY = 10  + Math.random()*5; 
+        var randomZ = Math.random() * 10 - 5; 
 
-    //     sphere.position.set(randomX, randomY, randomZ);
-    //     scene.add(sphere);
-    //     rotatingObjects.push(sphere);
+        sphere.position.set(randomX, randomY, randomZ);
+        scene.add(sphere);
+        rotatingObjects.push(sphere);
 
-    // }
+    }
 
 
     
     // 循环遍历rotatingObjects数组中的所有对象，并将它们的position.y属性增加5
-rotatingObjects.forEach(function(object) {
-    object.position.y += 5;
-});
+    rotatingObjects.forEach(function(object) {
+        object.position.y += 5;
+    });
     // 旋转物体打包
     const specificObjectWrapper = new THREE.Object3D();
 
@@ -602,7 +453,7 @@ rotatingObjects.forEach(function(object) {
     scene.add(specificObjectWrapper); // 将包裹对象添加到场景中
 
     function render(time) {
-        // specificObjectWrapper.rotateY(0.01); // 绕世界Y轴旋转
+        specificObjectWrapper.rotateY(0.01); // 绕世界Y轴旋转
         time *= 0.001; 
 
         controls.update();
